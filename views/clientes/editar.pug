@@ -5,39 +5,63 @@ block contenido
 
     form(action=`/clientes/editar/${cliente.id}` method="POST")
         div
-            label ID (No editable):
+            label ID:
             input(type="number" value=cliente.id disabled)
-        
+
         div
-            label Tipo de Documento:
-            select(name="tipoDoc")
+            label(for="tipoDoc") Tipo de Documento:
+            select(id="tipoDoc" name="tipoDoc")
                 option(value="DNI" selected=cliente.tipoDoc === "DNI") DNI
                 option(value="CUIT" selected=cliente.tipoDoc === "CUIT") CUIT
 
-        div
-            label Número de Documento:
-            input(type="text" name="nroDoc" value=cliente.nroDoc required)
+        div#campo-nombre
+            label(for="nombre") Nombre:
+            input(type="text" id="nombre" name="nombre" value=cliente.nombre)
+
+        div#campo-razonSocial
+            label(for="razonSocial") Razón Social:
+            input(type="text" id="razonSocial" name="razonSocial" value=cliente.razonSocial)
 
         div
-            label Nombre (DNI):
-            input(type="text" name="nombre" value=cliente.nombre)
+            label(for="nroDoc") Número de Documento:
+            input(type="text" id="nroDoc" name="nroDoc" required value=cliente.nroDoc)
 
         div
-            label Razón Social (CUIT):
-            input(type="text" name="razonSocial" value=cliente.razonSocial)
+            label(for="email") Email:
+            input(type="email" id="email" name="email" value=cliente.email)
 
         div
-            label Email:
-            input(type="email" name="email" value=cliente.email required)
+            label(for="telefono") Teléfono:
+            input(type="text" id="telefono" name="telefono" value=cliente.telefono)
 
         div
-            label Teléfono:
-            input(type="text" name="telefono" value=cliente.telefono)
+            label(for="direccion") Dirección:
+            input(type="text" id="direccion" name="direccion" value=cliente.direccion)
 
-        div
-            label Dirección:
-            input(type="text" name="direccion" value=cliente.direccion)
-        
         div.form-actions
             button(type="submit").btn-guardar Guardar Cambios
             a(href="/clientes").btn-cancelar Cancelar
+
+    script.
+        const select = document.getElementById('tipoDoc');
+        const campoNombre = document.getElementById('campo-nombre');
+        const campoRazon = document.getElementById('campo-razonSocial');
+        const inputNombre = document.getElementById('nombre');
+        const inputRazon = document.getElementById('razonSocial');
+
+        function actualizarCampos() {
+            if (select.value === 'CUIT') {
+                campoNombre.style.display = 'none';
+                campoRazon.style.display = 'block';
+                inputNombre.removeAttribute('required');
+                inputRazon.setAttribute('required', 'true');
+            } else {
+                campoNombre.style.display = 'block';
+                campoRazon.style.display = 'none';
+                inputRazon.removeAttribute('required');
+                inputNombre.setAttribute('required', 'true');
+            }
+        }
+
+        select.addEventListener('change', actualizarCampos);
+        actualizarCampos();
