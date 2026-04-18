@@ -126,6 +126,14 @@ table td:nth-child(4) {
     /* Asegura un ancho mínimo para que no se aprete */
 }
 
+/* --- SOLUCIÓN PARA DOCUMENTO Y TELÉFONO --- */
+table th:nth-child(2),
+table td:nth-child(2),
+table th:nth-child(5),
+table td:nth-child(5) {
+    white-space: nowrap;
+}
+
 /* Formularios */
 form {
     display: flex;
