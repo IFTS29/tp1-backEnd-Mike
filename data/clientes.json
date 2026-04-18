@@ -1,0 +1,23 @@
+[
+{
+  "id": 1,
+  "tipoDoc": "DNI",
+  "nroDoc": "32456789",
+  "nombre": "Juan Pérez",
+  "email": "juan@ejemplo.com",
+  "telefono": "11-4321-5566",
+  "direccion": "Av. Santa Fe 2500, Palermo, CABA",
+  "razonSocial": null
+},
+
+{
+    "id": 2,
+    "tipoDoc": "CUIT",
+    "nroDoc": "30-71456789-2",
+    "nombre": null,
+    "email": "ventas@limpiezatotal.com.ar",
+    "telefono": "11-4899-0011",
+    "direccion": "Florida 150, Microcentro, CABA",
+    "razonSocial": "Limpieza Total S.R.L."
+}
+]
