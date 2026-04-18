@@ -163,6 +163,21 @@ button {
     font-weight: bold;
 }
 
+.btn-nuevo {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #18bc9c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-nuevo:hover {
+    background-color: #128f76;
+}
+
 button:hover {
     background-color: #128f76;
 }

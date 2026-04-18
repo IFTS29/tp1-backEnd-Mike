@@ -2,6 +2,9 @@ extends ../layout
 
 block contenido
     h1 Listado de Clientes
+
+    div(style='text-align: right; margin-bottom: 15px;')
+        a.btn-nuevo(href='/clientes/nuevo') + Registrar Cliente
     
     if clientes.length > 0
         table
