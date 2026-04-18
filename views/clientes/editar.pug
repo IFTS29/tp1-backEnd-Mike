@@ -1,0 +1,43 @@
+extends ../layout
+
+block contenido
+    h1 Editar Cliente: #{cliente.tipoDoc === 'DNI' ? cliente.nombre : cliente.razonSocial}
+
+    form(action=`/clientes/editar/${cliente.id}` method="POST")
+        div
+            label ID (No editable):
+            input(type="number" value=cliente.id disabled)
+        
+        div
+            label Tipo de Documento:
+            select(name="tipoDoc")
+                option(value="DNI" selected=cliente.tipoDoc === "DNI") DNI
+                option(value="CUIT" selected=cliente.tipoDoc === "CUIT") CUIT
+
+        div
+            label Número de Documento:
+            input(type="text" name="nroDoc" value=cliente.nroDoc required)
+
+        div
+            label Nombre (DNI):
+            input(type="text" name="nombre" value=cliente.nombre)
+
+        div
+            label Razón Social (CUIT):
+            input(type="text" name="razonSocial" value=cliente.razonSocial)
+
+        div
+            label Email:
+            input(type="email" name="email" value=cliente.email required)
+
+        div
+            label Teléfono:
+            input(type="text" name="telefono" value=cliente.telefono)
+
+        div
+            label Dirección:
+            input(type="text" name="direccion" value=cliente.direccion)
+        
+        div.form-actions
+            button(type="submit").btn-guardar Guardar Cambios
+            a(href="/clientes").btn-cancelar Cancelar
