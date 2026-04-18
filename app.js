@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const rutasProductos = require('./routes/productoRoutes');
+const clienteRoutes = require('./routes/clienteRoutes');
 
 // Configuración de Pug 
 app.set('view engine', 'pug');
@@ -19,6 +20,7 @@ app.use(express.json()); // Para Thunder Client
 
 // Uso de las rutas
 app.use('/', rutasProductos);
+app.use('/clientes', clienteRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
